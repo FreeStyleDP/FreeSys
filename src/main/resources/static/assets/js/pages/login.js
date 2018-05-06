@@ -75,7 +75,7 @@ $(document).ready(function() {
 			type : "post",  
 			url : "/loginUser",  
 			data : {
-				name:$('#userName').val(),
+				id:$('#userName').val(),
 				password:$('#password').val(),
 			}, 
 			success : function(result){

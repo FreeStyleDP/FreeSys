@@ -1,9 +1,9 @@
-package com.free.dao;
-
-import com.free.entity.DO.Permission;
-import com.free.entity.DO.RolePermission;
+package com.free.shiro.dao;
 
 import java.util.List;
+
+import com.free.shiro.entity.DO.Permission;
+import com.free.shiro.entity.DO.RolePermission;
 
 public interface RolePermissionMapper {
     /**

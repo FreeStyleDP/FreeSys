@@ -1,8 +1,9 @@
-package com.free.dao;
+package com.free.shiro.dao;
 
-import com.free.entity.DO.Role;
-import com.free.entity.DO.UserRole;
 import java.util.List;
+
+import com.free.shiro.entity.DO.Role;
+import com.free.shiro.entity.DO.UserRole;
 
 public interface UserRoleMapper {
     /**

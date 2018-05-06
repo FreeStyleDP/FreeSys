@@ -1,4 +1,4 @@
-package com.free.controller;
+package com.free.shiro.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -10,15 +10,13 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.free.entity.DO.User;
 import com.free.entity.DTO.JsonResult;
 import com.free.exception.BusinessException;
+import com.free.shiro.entity.DO.User;
 
 @Controller
 public class LoginController {
@@ -36,7 +34,7 @@ public class LoginController {
 	@RequestMapping(value = "/loginUser" , method = RequestMethod.POST)
 	@ResponseBody
 	public JsonResult loginUser(User user,HttpSession session) {
-		UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getName(),user.getPassword());
+		UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getId(),user.getPassword());
 		
 		Subject subject = SecurityUtils.getSubject();
 		try { 

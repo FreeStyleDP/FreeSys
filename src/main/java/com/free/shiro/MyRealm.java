@@ -14,13 +14,13 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.free.dao.RolePermissionMapper;
-import com.free.dao.UserMapper;
-import com.free.dao.UserRoleMapper;
-import com.free.entity.DO.Permission;
-import com.free.entity.DO.Role;
-import com.free.entity.DO.User;
-import com.free.entity.DO.UserRole;
+import com.free.shiro.dao.RolePermissionMapper;
+import com.free.shiro.dao.UserMapper;
+import com.free.shiro.dao.UserRoleMapper;
+import com.free.shiro.entity.DO.Permission;
+import com.free.shiro.entity.DO.Role;
+import com.free.shiro.entity.DO.User;
+import com.free.shiro.entity.DO.UserRole;
 
 public class MyRealm extends AuthorizingRealm {
 

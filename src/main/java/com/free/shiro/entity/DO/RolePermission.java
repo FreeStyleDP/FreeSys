@@ -1,4 +1,4 @@
-package com.free.entity.DO;
+package com.free.shiro.entity.DO;
 
 public class RolePermission {
     /**
