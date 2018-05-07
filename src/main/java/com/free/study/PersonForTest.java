@@ -1,4 +1,4 @@
-package com.dp.study;
+package com.free.study;
 
 public class PersonForTest {
 		private String name ;

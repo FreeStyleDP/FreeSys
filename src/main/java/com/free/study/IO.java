@@ -1,4 +1,4 @@
-package com.dp.study;
+package com.free.study;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

@@ -1,4 +1,4 @@
-package com.dp.study;
+package com.free.study;
 
 public enum ColorEnum{
 	 RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
