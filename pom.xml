@@ -107,6 +107,10 @@
 			<artifactId>mapper-spring-boot-starter</artifactId>
 			<version>1.2.4</version>
 		</dependency>
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
