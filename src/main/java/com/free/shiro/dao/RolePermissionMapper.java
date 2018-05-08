@@ -22,5 +22,7 @@ public interface RolePermissionMapper {
      */
     List<RolePermission> selectAll();
 
-	List<Permission> selectByRoleId(String id);
+	List<RolePermission> selectByRoleId(String id);
+
+	int deleteRolePermission(RolePermission rolePermission);
 }

@@ -19,6 +19,7 @@ import com.free.shiro.dao.UserMapper;
 import com.free.shiro.dao.UserRoleMapper;
 import com.free.shiro.entity.DO.Permission;
 import com.free.shiro.entity.DO.Role;
+import com.free.shiro.entity.DO.RolePermission;
 import com.free.shiro.entity.DO.User;
 import com.free.shiro.entity.DO.UserRole;
 
@@ -40,13 +41,13 @@ public class MyRealm extends AuthorizingRealm {
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principal) {
 		User user=(User) principal.fromRealm(this.getClass().getName()).iterator().next();//获取session中的用户
         List<String> permissions=new ArrayList<>();
-        List<Role> roles = userRoleMapper.selectByUserId(user.getId());
+        List<UserRole> roles = userRoleMapper.selectByUserId(user.getId());
         if(roles.size()>0) {
-            for(Role role : roles) {
-                   List<Permission> permissions1 = rolePermissionMapper.selectByRoleId(role.getId());
+            for(UserRole role : roles) {
+                   List<RolePermission> permissions1 = rolePermissionMapper.selectByRoleId(role.getRoleId());
                 if(permissions1.size()>0) {
-                    for(Permission module : permissions1) {
-                        permissions.add(module.getId());
+                    for(RolePermission module : permissions1) {
+                        permissions.add(module.getPermissionId());
                     }
                 }
             }

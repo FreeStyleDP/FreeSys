@@ -38,4 +38,9 @@
     from user_role
     where user_id = #{user_id,jdbcType=VARCHAR}
   </select>
+  
+  <delete id="deleteUserRole" parameterType="com.free.shiro.entity.DO.UserRole" >
+    delete from user_role
+    where user_id = #{userId,jdbcType=VARCHAR} and role_id = #{roleId,jdbcType=VARCHAR}
+  </delete>
 </mapper>

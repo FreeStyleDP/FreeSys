@@ -22,5 +22,7 @@ public interface UserRoleMapper {
      */
     List<UserRole> selectAll();
 
-	List<Role> selectByUserId(String id);
+	List<UserRole> selectByUserId(String id);
+
+	int deleteUserRole(UserRole userRole);
 }

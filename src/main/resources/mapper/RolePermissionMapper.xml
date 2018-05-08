@@ -39,4 +39,9 @@
     from role_permission
     where role_id = #{user_id,jdbcType=VARCHAR}
   </select>
+  
+   <delete id="deleteRolePermission" parameterType="com.free.shiro.entity.DO.RolePermission" >
+    delete from role_permission
+    where role_id = #{roleId,jdbcType=VARCHAR} and permission_id = #{permissionId,jdbcType=VARCHAR}
+  </delete>
 </mapper>
