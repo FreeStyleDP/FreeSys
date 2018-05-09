@@ -46,5 +46,4 @@ public interface UserMapper {
      */
     int updateByPrimaryKey(User record);
 
-	List<Role> getRoles(String id);
 }
