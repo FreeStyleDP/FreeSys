@@ -20,6 +20,7 @@ public class PermissionController {
 		return "rabc_permissionManage";
 	}
 	
+	
 	@RequestMapping("/insertPermission.do")
 	@ResponseBody
 	public JsonResult insertPermission(Permission permission) {

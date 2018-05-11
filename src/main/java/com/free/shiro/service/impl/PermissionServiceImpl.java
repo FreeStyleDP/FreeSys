@@ -53,4 +53,14 @@ public class PermissionServiceImpl implements PermissionService {
 		return null;
 	}
 
+	@Override
+	public List<Permission> selectMenuPermission(String id) {
+		return permissionMapper.selectMenuPermission(id);
+	}
+
+	@Override
+	public List<Permission> selectAllPermission() {
+		return permissionMapper.selectAll();
+	}
+
 }

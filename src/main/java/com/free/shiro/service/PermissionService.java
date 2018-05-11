@@ -1,5 +1,7 @@
 package com.free.shiro.service;
 
+import java.util.List;
+
 import com.free.entity.DTO.Pager;
 import com.free.shiro.entity.DO.Permission;
 
@@ -12,5 +14,9 @@ public interface PermissionService {
 	void updatePermission(Permission permission);
 
 	Pager selectPermission(Pager pager);
+
+	List<Permission> selectAllPermission();
+
+	List<Permission> selectMenuPermission(String id);
 
 }

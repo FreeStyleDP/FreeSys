@@ -57,4 +57,10 @@
     select id, desc
     from permission
   </select>
+  
+  <select id="selectMenuPermission" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select id, desc
+    from permission
+    where id not like #{id,jdbcType=VARCHAR}
+  </select>
 </mapper>

@@ -44,4 +44,6 @@ public interface PermissionMapper {
      * @mbggenerated Tue May 01 12:54:10 CST 2018
      */
     int updateByPrimaryKey(Permission record);
+
+	List<Permission> selectMenuPermission(String id);
 }
