@@ -59,8 +59,11 @@
   </select>
   
   <select id="selectMenuPermission" resultMap="BaseResultMap" parameterType="java.lang.String" >
-    select id, desc
-    from permission
-    where id not like #{id,jdbcType=VARCHAR}
+    SELECT 
+	id, desc
+	from permission 
+	where id  not like #{id,jdbcType=VARCHAR} and id not in (
+		SELECT id from menu 
+	)
   </select>
 </mapper>

@@ -39,21 +39,10 @@ public class MenuController {
 	@RequestMapping("/updateMenuByPermission.do")
 	public JsonResult updateMenuByPermission() {
 		List<Permission> permissionList = permissionService.selectMenuPermission("%.do");
-		List<Menu> menuList = menuService.selectAll();
 		for (Permission permission : permissionList) {
-			boolean flag = false;
-			for (Menu menu : menuList) {
-				if (permission.getId().equals(menu.getId())) {
-					flag = true;
-					break;
-				}
-			}
-			
-			if (!flag) {
-				Menu menu1 = new Menu();
-				menu1.setId(permission.getId());
-				menuService.insertMenu(menu1);
-			}
+			Menu menu1 = new Menu();
+			menu1.setId(permission.getId());
+			menuService.insertMenu(menu1);
 		}
 		return JsonResult.ok();
 	}
