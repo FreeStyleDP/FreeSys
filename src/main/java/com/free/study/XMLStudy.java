@@ -30,7 +30,7 @@ import org.dom4j.io.XMLWriter;
  * @author dengping
  *
  */
-public class XML{
+public class XMLStudy{
 	
 	public static void main(String[] args) throws DocumentException, IOException {
 //		读xml

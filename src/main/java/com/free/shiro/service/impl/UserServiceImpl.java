@@ -13,9 +13,6 @@ import com.free.shiro.service.UserService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
-import tk.mybatis.mapper.entity.Example;
-import tk.mybatis.mapper.entity.Example.Criteria;
-
 @Service
 public class UserServiceImpl implements UserService {
 	

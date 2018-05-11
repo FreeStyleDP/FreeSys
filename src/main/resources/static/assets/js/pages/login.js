@@ -73,7 +73,7 @@ $(document).ready(function() {
 	$("button").click(function(){
 		$.ajax({  
 			type : "post",  
-			url : "/loginUser",  
+			url : "/login.do",  
 			data : {
 				id:$('#userName').val(),
 				password:$('#password').val(),

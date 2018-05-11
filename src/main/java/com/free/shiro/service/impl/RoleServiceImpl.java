@@ -7,9 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.free.entity.DTO.Pager;
 import com.free.exception.BusinessException;
-import com.free.shiro.RoleService.RoleService;
 import com.free.shiro.dao.RoleMapper;
 import com.free.shiro.entity.DO.Role;
+import com.free.shiro.service.RoleService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 

@@ -21,7 +21,7 @@ import com.free.shiro.entity.DO.User;
 @Controller
 public class LoginController {
 
-	@RequestMapping("/login")
+	@RequestMapping("/toLogin")
 	public String login() {
 		return "login";
 	}
@@ -31,7 +31,7 @@ public class LoginController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/loginUser" , method = RequestMethod.POST)
+	@RequestMapping(value = "/login.do" , method = RequestMethod.POST)
 	@ResponseBody
 	public JsonResult loginUser(User user,HttpSession session) {
 		UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(user.getId(),user.getPassword());

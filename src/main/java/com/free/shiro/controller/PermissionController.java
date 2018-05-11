@@ -15,28 +15,33 @@ public class PermissionController {
 
 	public PermissionService permissionService;
 	
-	@RequestMapping("/insertPermission")
+	@RequestMapping("/toPermission")
+	public String toPermission() {
+		return "rabc_permissionManage";
+	}
+	
+	@RequestMapping("/insertPermission.do")
 	@ResponseBody
 	public JsonResult insertPermission(Permission permission) {
 		permissionService.insertPermission(permission);
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/deletePermission")
+	@RequestMapping("/deletePermission.do")
 	@ResponseBody
 	public JsonResult deletePermission(Permission permission) {
 		permissionService.deletePermission(permission.getId());
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/updatePermission")
+	@RequestMapping("/updatePermission.do")
 	@ResponseBody
 	public JsonResult updatePermission(Permission permission) {
 		permissionService.updatePermission(permission);
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/selectPermission")
+	@RequestMapping("/selectPermission.do")
 	@ResponseBody
 	public JsonResult selectPermission(Pager pager) {
 		pager = permissionService.selectPermission(pager);

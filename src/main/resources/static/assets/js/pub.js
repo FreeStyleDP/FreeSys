@@ -16,3 +16,5 @@ function alertReturnMsg(resultData,flag){
 		sweetAlert("交易失败", resultData.msg,"error");
 	}
 }
+
+

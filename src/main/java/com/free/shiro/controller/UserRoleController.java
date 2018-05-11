@@ -18,21 +18,21 @@ public class UserRoleController {
 	@Autowired
 	public UserRoleService userRoleService;
 	
-	@RequestMapping("/insertUserRole")
+	@RequestMapping("/insertUserRole.do")
 	@ResponseBody
 	public JsonResult insertUserRole(UserRole userRole) {
 		userRoleService.insertUserRole(userRole);
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/deleteUserRole")
+	@RequestMapping("/deleteUserRole.do")
 	@ResponseBody
 	public JsonResult deleteUserRole(UserRole userRole) {
 		userRoleService.deleteUserRole(userRole);
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/selectUserRole")
+	@RequestMapping("/selectUserRole.do")
 	@ResponseBody
 	public JsonResult selectUserRoleByUserId(UserRole userRole ) {
 		List<UserRole> userRoles = userRoleService.selectUserRoleByUserId(userRole.getUserId());

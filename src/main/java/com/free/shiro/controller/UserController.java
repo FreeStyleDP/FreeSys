@@ -20,21 +20,26 @@ public class UserController {
 	@Autowired
 	UserService userService ;
 	
-	@RequestMapping("/insertUser")
+	@RequestMapping("/toUser")
+	public String toUser() {
+		return "rabc_userManage";
+	}
+	
+	@RequestMapping("/insertUser.do")
 	@ResponseBody
 	public JsonResult insertUser(User user) {
 		userService.insertUser(user);
 		return new JsonResult("");
 	}
 	
-	@RequestMapping("/deleteUser")
+	@RequestMapping("/deleteUser.do")
 	@ResponseBody
 	public JsonResult deleteUser(User user) {
 		userService.deleteUser(user.getId());
 		return new JsonResult("");
 	}
 	
-	@RequestMapping("/updateUser")
+	@RequestMapping("/updateUser.do")
 	@ResponseBody
 	public JsonResult updateUser(User user) {
 		userService.updateUser(user);
@@ -49,7 +54,7 @@ public class UserController {
 		return new JsonResult(users);
 	}
 	
-	@RequestMapping("/selectAllUser")
+	@RequestMapping("/selectAllUser.do")
 	@ResponseBody
 	public JsonResult selectAllUser() {
 		List<User> selectAllUsers =userService.selectAllUsers();

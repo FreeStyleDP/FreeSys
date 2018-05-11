@@ -1,4 +1,4 @@
-package com.free.shiro.RoleService;
+package com.free.shiro.service;
 
 import com.free.entity.DTO.Pager;
 import com.free.shiro.entity.DO.Role;

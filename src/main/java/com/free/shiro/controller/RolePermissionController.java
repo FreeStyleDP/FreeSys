@@ -18,21 +18,21 @@ public class RolePermissionController {
 	@Autowired 
 	public RolePermissionService rolePermissionService;
 	
-	@RequestMapping("/inserRolePermission")
+	@RequestMapping("/inserRolePermission.do")
 	@ResponseBody
 	public JsonResult insertRolePermission(RolePermission rolePermission) {
 		rolePermissionService.insertRolePermission(rolePermission);
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/deleteRolePermission")
+	@RequestMapping("/deleteRolePermission.do")
 	@ResponseBody
 	public JsonResult deleteRolePermission(RolePermission rolePermission) {
 		rolePermissionService.deleteRolePermission(rolePermission);
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/selectRolePermissionByRoleId")
+	@RequestMapping("/selectRolePermissionByRoleId.do")
 	@ResponseBody
 	public JsonResult selectRolePermissionByRoleId(RolePermission rolePermission) {
 		List<RolePermission> rolePermissions = rolePermissionService.selectRolePermissionByRoleId(rolePermission.getRoleId());
