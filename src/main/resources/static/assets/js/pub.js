@@ -1,5 +1,6 @@
-document.write("<link href='../../../static/sweetalert/sweet-alert.css' rel='stylesheet' />");
-document.write("<script src='../../../static/sweetalert/sweet-alert.min.js'></script>");
+document.write("<script src='/static/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+document.write('<script src="/static/assets/js/bootstrap.min.js"></script>');
+document.write('<script src="/static/assets/js/bootbox.min.js"></script>');
 
 /**
  * resultData:返回数据
@@ -10,11 +11,10 @@ document.write("<script src='../../../static/sweetalert/sweet-alert.min.js'></sc
 function alertReturnMsg(resultData,flag){
 	if(resultData.status == 200){//成功
 		if(flag == 1){
-			sweetAlert("交易成功", resultData.msg,"success");
+			bootbox.alert( resultData.msg);
 		}
 	} else if(typeof(resultData.status) != 'undefined'){//失败
-		sweetAlert("交易失败", resultData.msg,"error");
+//		bootbox.alert( resultData.msg);
+		bootbox.alert( resultData.msg);
 	}
 }
-
-

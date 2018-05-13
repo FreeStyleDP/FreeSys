@@ -22,7 +22,7 @@ public class UserController {
 	
 	@RequestMapping("/toUser")
 	public String toUser() {
-		return "rabc_userManage";
+		return "rbac_userManage";
 	}
 	
 	@RequestMapping("/insertUser.do")
@@ -47,7 +47,7 @@ public class UserController {
 		return new JsonResult("");
 	}
 	
-	@RequestMapping("/selectUser")
+	@RequestMapping("/selectUser.do")
 	@ResponseBody
 	public JsonResult selectUser( Pager pager) {
 		Pager users = userService.selectUser(pager);

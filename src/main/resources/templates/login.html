@@ -1,168 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Login</title>
-        <!-- Mobile specific metas -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-        <!-- Force IE9 to render in normal mode -->
-        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
-        <meta name="author" content="SuggeElson" />
-        <meta name="description" content=""
-        />
-        <meta name="keywords" content=""
-        />
-        <meta name="application-name" content="sprFlat admin template" />
-        <!-- Import google fonts - Heading first/ text second -->
-        <link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=Open+Sans:400,700|Droid+Sans:400,700' />
-        <!--[if lt IE 9]>
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Open+Sans:700" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Droid+Sans:400" rel="stylesheet" type="text/css" />
-<link href="http://fonts.googleapis.com/css?family=Droid+Sans:700" rel="stylesheet" type="text/css" />
+	<head>
+		<meta charset="utf-8" />
+		<title>FreeSys</title>
+		<meta name="keywords" content="Bootstrapģ��,Bootstrapģ������,Bootstrap�̳�,Bootstrap����" />
+		<meta name="description" content="վ���ز��ṩBootstrapģ��,Bootstrap�̳�,Bootstrap���ķ�������Bootstrap�������" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- basic styles -->
+
+		<link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/static/assets/css/font-awesome.min.css" />
+
+		<!--[if IE 7]>
+		  <link rel="stylesheet" href="/static/assets/css/font-awesome-ie7.min.css" />
+		<![endif]-->
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="/static/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="/static/assets/css/ace-rtl.min.css" />
+
+		<!--[if lte IE 8]>
+		  <link rel="stylesheet" href="/static/assets/css/ace-ie.min.css" />
+		<![endif]-->
+
+		<!-- inline styles related to this page -->
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+		<!--[if lt IE 9]>
+		<script src="/static/assets/js/html5shiv.js"></script>
+		<script src="/static/assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body class="login-layout">
+		<div class="main-container">
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<div class="login-container">
+							<div class="center">
+								<h1>
+									<i class="icon-leaf green"></i>
+									<span class="red">Ace</span>
+									<span class="white">Application</span>
+								</h1>
+								<h4 class="blue">&copy; Company Name</h4>
+							</div>
+
+							<div class="space-6"></div>
+
+							<div class="position-relative">
+								<div id="login-box" class="login-box visible widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header blue lighter bigger">
+												<i class="icon-coffee green"></i>
+												Please Enter Your Information
+											</h4>
+
+											<div class="space-6"></div>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" id="userName" placeholder="Username" value="dp" />
+															<i class="icon-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" id="password" placeholder="Password" value="123" />
+															<i class="icon-lock"></i>
+														</span>
+													</label>
+
+													<div class="space"></div>
+
+													<div class="clearfix">
+														<label class="inline">
+															<input type="checkbox" class="ace" />
+															<span class="lbl"> Remember Me</span>
+														</label>
+
+														<button type="button" id="loginBtn" class="width-35 pull-right btn btn-sm btn-primary">
+															<i class="icon-key"></i>
+															Login
+														</button>
+													</div>
+
+													<div class="space-4"></div>
+												</fieldset>
+											</form>
+
+											<div class="social-or-login center">
+												<span class="bigger-110">Or Login Using</span>
+											</div>
+
+											<div class="social-login center">
+												<a class="btn btn-primary">
+													<i class="icon-facebook"></i>
+												</a>
+
+												<a class="btn btn-info">
+													<i class="icon-twitter"></i>
+												</a>
+
+												<a class="btn btn-danger">
+													<i class="icon-google-plus"></i>
+												</a>
+											</div>
+										</div><!-- /widget-main -->
+
+										<div class="toolbar clearfix">
+											<div>
+												<a href="#" onclick="show_box('forgot-box'); return false;" class="forgot-password-link">
+													<i class="icon-arrow-left"></i>
+													I forgot my password
+												</a>
+											</div>
+
+											<div>
+												<a href="#" onclick="show_box('signup-box'); return false;" class="user-signup-link">
+													I want to register
+													<i class="icon-arrow-right"></i>
+												</a>
+											</div>
+										</div>
+									</div><!-- /widget-body -->
+								</div><!-- /login-box -->
+
+								<div id="forgot-box" class="forgot-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header red lighter bigger">
+												<i class="icon-key"></i>
+												Retrieve Password
+											</h4>
+
+											<div class="space-6"></div>
+											<p>
+												Enter your email and to receive instructions
+											</p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="Email" />
+															<i class="icon-envelope"></i>
+														</span>
+													</label>
+
+													<div class="clearfix">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-danger">
+															<i class="icon-lightbulb"></i>
+															Send Me!
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div><!-- /widget-main -->
+
+										<div class="toolbar center">
+											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
+												Back to login
+												<i class="icon-arrow-right"></i>
+											</a>
+										</div>
+									</div><!-- /widget-body -->
+								</div><!-- /forgot-box -->
+
+								<div id="signup-box" class="signup-box widget-box no-border">
+									<div class="widget-body">
+										<div class="widget-main">
+											<h4 class="header green lighter bigger">
+												<i class="icon-group blue"></i>
+												New User Registration
+											</h4>
+
+											<div class="space-6"></div>
+											<p> Enter your details to begin: </p>
+
+											<form>
+												<fieldset>
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="email" class="form-control" placeholder="Email" />
+															<i class="icon-envelope"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="text" class="form-control" placeholder="Username" />
+															<i class="icon-user"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="Password" />
+															<i class="icon-lock"></i>
+														</span>
+													</label>
+
+													<label class="block clearfix">
+														<span class="block input-icon input-icon-right">
+															<input type="password" class="form-control" placeholder="Repeat password" />
+															<i class="icon-retweet"></i>
+														</span>
+													</label>
+
+													<label class="block">
+														<input type="checkbox" class="ace" />
+														<span class="lbl">
+															I accept the
+															<a href="#">User Agreement</a>
+														</span>
+													</label>
+
+													<div class="space-24"></div>
+
+													<div class="clearfix">
+														<button type="reset" class="width-30 pull-left btn btn-sm">
+															<i class="icon-refresh"></i>
+															Reset
+														</button>
+
+														<button type="button" class="width-65 pull-right btn btn-sm btn-success">
+															Register
+															<i class="icon-arrow-right icon-on-right"></i>
+														</button>
+													</div>
+												</fieldset>
+											</form>
+										</div>
+
+										<div class="toolbar center">
+											<a href="#" onclick="show_box('login-box'); return false;" class="back-to-login-link">
+												<i class="icon-arrow-left"></i>
+												Back to login
+											</a>
+										</div>
+									</div><!-- /widget-body -->
+								</div><!-- /signup-box -->
+							</div><!-- /position-relative -->
+						</div>
+					</div><!-- /.col -->
+				</div><!-- /.row -->
+			</div>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<!--[if !IE]> -->
+
+<!-- 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> -->
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <![endif]-->
-        <!-- Css files -->
-        <!-- Icons -->
-        <link href="../static/assets/css/icons.css" rel="stylesheet" />
-        <!-- jQueryUI -->
-        <link href="../static/assets/css/sprflat-theme/jquery.ui.all.css" rel="stylesheet" />
-        <!-- Bootstrap stylesheets (included template modifications) -->
-        <link href="../static/assets/css/bootstrap.css" rel="stylesheet" />
-        <!-- Plugins stylesheets (all plugin custom css) -->
-        <link href="../static/assets/css/plugins.css" rel="stylesheet" />
-        <!-- Main stylesheets (template main css file) -->
-        <link href="../static/assets/css/main.css" rel="stylesheet" />
-        
-        <!-- Custom stylesheets ( Put your own changes here ) -->
-        <link href="../static/assets/css/custom.css" rel="stylesheet" />
-        <!-- Fav and touch icons -->
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../static/assets/img/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../static/assets/img/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../static/assets/img/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="../static/assets/img/ico/apple-touch-icon-57-precomposed.png">
-        <link rel="icon" href="../static/assets/img/ico/favicon.ico" type="image/png">
-        <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
-        <meta name="msapplication-TileColor" content="#3399cc" />
-    </head>
-    <body class="login-page">
-        <!-- Start #login -->
-        <div id="login" class="animated bounceIn">
-            <!-- Start .login-wrapper -->
-            <div class="login-wrapper">
-                <ul id="myTab" class="nav nav-tabs nav-justified bn">
-                    <li>
-                        <a href="#log-in" data-toggle="tab">Login</a>
-                    </li>
-                    <li class="">
-                        <a href="#register" data-toggle="tab">Register</a>
-                    </li>
-                </ul>
-                <div id="myTabContent" class="tab-content bn">
-                    <div class="tab-pane fade active in" id="log-in">
-                        <div class="social-buttons text-center mt10">
-                            <a href="#" class="btn btn-primary btn-alt btn-round btn-lg mr10"><i class="fa-facebook s24"></i></a>
-                            <a href="#" class="btn btn-primary btn-alt btn-round btn-lg mr10"><i class="fa-twitter s24"></i></a>
-                            <a href="#" class="btn btn-danger btn-alt btn-round btn-lg mr10"><i class="fa-google-plus s24"></i></a>
-                            <a href="#" class="btn btn-info btn-alt btn-round btn-lg"><i class="fa-linkedin s24"></i></a>
-                        </div>
-                        <div class="seperator">
-                            <strong>or</strong>
-                            <hr>
-                        </div>
-                        <form class="form-horizontal mt10"  id="login-form" role="form">
-                            <div class="form-group">
-                                <div class="col-lg-12">
-                                    <input type="text" name="email" id="userName" class="form-control left-icon" value="dp" placeholder="Your email ...">
-                                    <i class="ec-user s16 left-input-icon"></i>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-12">
-                                    <input type="password" name="password" id="password" class="form-control left-icon" value="123" placeholder="Your password">
-                                    <i class="ec-locked s16 left-input-icon"></i>
-                                    <span class="help-block"><a href="#"><small>Forgout password ?</small></a></span> 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-8">
-                                    <!-- col-lg-12 start here -->
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="remember" id="remember" value="option">Remember me ?
-                                    </label>
-                                </div>
-                                <!-- col-lg-12 end here -->
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-4">
-                                    <!-- col-lg-12 start here -->
-                                    <button id="login1" class="btn btn-success pull-right" type="button">Login</button>
-                                </div>
-                                <!-- col-lg-12 end here -->
-                            </div>
-                        </form>
-                    </div>
-                    <div class="tab-pane fade" id="register">
-                        <form class="form-horizontal mt20" action="#" id="register-form" role="form">
-                            <div class="form-group">
-                                <div class="col-lg-12">
-                                    <!-- col-lg-12 start here -->
-                                    <input id="userNaem" name="email" type="email" class="form-control left-icon" placeholder="Type your email">
-                                    <i class="ec-mail s16 left-input-icon"></i> 
-                                </div>
-                                <!-- col-lg-12 end here -->
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-12">
-                                    <!-- col-lg-12 start here -->
-                                    <input type="password" class="form-control left-icon" id="password1" name="password" placeholder="Enter your password">
-                                    <i class="ec-locked s16 left-input-icon"></i> 
-                                </div>
-                                <!-- col-lg-12 end here -->
-                                <div class="col-lg-12 mt15">
-                                    <!-- col-lg-12 start here -->
-                                    <input type="password" class="form-control left-icon" id="confirm_password" name="confirm_passowrd" placeholder="Repeat password">
-                                    <i class="ec-locked s16 left-input-icon"></i> 
-                                </div>
-                                <!-- col-lg-12 end here -->
-                            </div>
-                            <div class="form-group">
-                                <div class="col-lg-12">
-                                    <!-- col-lg-12 start here -->
-                                    <button class="btn btn-success btn-block">Register</button>
-                                </div>
-                                <!-- col-lg-12 end here -->
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- End #.login-wrapper -->
-        </div>
-        <!-- End #login -->
-        <!-- Javascripts -->
-        <!-- Load pace first -->
-        <script src="../static/assets/plugins/core/pace/pace.min.js"></script>
-        <!-- Important javascript libs(put in all pages) -->
-        <script src="../static/assets/js/jquery-1.8.3.min.js"></script>
-        <script>
-        window.jQuery || document.write('<script src="../static/assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
-        </script>
-        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-        <script>
-        window.jQuery || document.write('<script src="../static/assets/js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
-        </script>
-        <!--[if lt IE 9]>
-  <script type="text/javascript" src="../static/assets/js/libs/excanvas.min.js"></script>
-  <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <script type="text/javascript" src="../static/assets/js/libs/respond.min.js"></script>
+
+		<!--[if !IE]> -->
+
+		<script type="text/javascript">
+			window.jQuery || document.write("<script src='/static/assets/js/jquery-2.0.3.min.js'>"+"<"+"/script>");
+		</script>
+
+		<!-- <![endif]-->
+
+		<!--[if IE]>
+<script type="text/javascript">
+ window.jQuery || document.write("<script src='/static/assets/js/jquery-1.10.2.min.js'>"+"<"+"/script>");
+</script>
 <![endif]-->
-        <!-- Bootstrap plugins -->
-        <script src="../static/assets/js/bootstrap/bootstrap.js"></script>
-        <!-- Form plugins -->
-        <script src="../static/assets/plugins/forms/icheck/jquery.icheck.js"></script>
-        <script src="../static/assets/plugins/forms/validation/jquery.validate.js"></script>
-        <script src="../static/assets/plugins/forms/validation/additional-methods.min.js"></script>
-        
-        <!-- Init plugins olny for this page -->
-        <script src="../static/assets/js/pub.js"></script>
-        <script src="../static/assets/js/pages/login.js"></script>
-    </body>
+
+		<script type="text/javascript">
+			if("ontouchend" in document) document.write("<script src='/static/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+		</script>
+		
+		<script src="/static/assets/js/pub.js"></script>
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+			function show_box(id) {
+			 jQuery('.widget-box.visible').removeClass('visible');
+			 jQuery('#'+id).addClass('visible');
+			}
+			
+			$(document).ready(function(){
+				$("#loginBtn").click(function(){
+					$.ajax({
+						type:"post",
+						url:"/login.do",
+						async:true,
+						data : {
+							id:$('#userName').val(),
+							password:$('#password').val(),
+						}, 
+						success : function(result){
+							var status = result.status;
+							if(status == 200){
+								window.location.href="/toIndex"; 
+							}else{
+								alertReturnMsg(result,2);
+							}
+						}
+					});
+				});
+
+			});
+		</script>
+	
+</body>
 </html>

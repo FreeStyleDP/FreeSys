@@ -19,7 +19,8 @@ public class RoleController {
 	
 	@RequestMapping("/toRole")
 	public String toRole() {
-		return "rabc_roleManage";
+//		return "informManage";
+		return "rbac_roleManage";
 	}
 	
 	@RequestMapping("/insertRole.do")

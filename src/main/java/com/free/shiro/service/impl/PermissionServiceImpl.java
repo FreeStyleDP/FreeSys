@@ -50,7 +50,8 @@ public class PermissionServiceImpl implements PermissionService {
 		
 		PageInfo<Permission> pageInfo = new PageInfo<>(selectAll);
 		pager.setRecordTotal((int) pageInfo.getTotal());
-		return null;
+		pager.setContent(selectAll);
+		return pager;
 	}
 
 	@Override

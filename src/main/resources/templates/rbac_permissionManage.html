@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>权限管理</title>
+
+		<!-- basic styles -->
+
+		<link href="/static/assets/css/bootstrap.min.css" rel="stylesheet" />
+		
+		<link rel="stylesheet" href="/static/assets/css/font-awesome.min.css" />
+
+		<!-- page specific plugin styles -->
+
+		<!-- fonts -->
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+		<!-- ace styles -->
+
+		<link rel="stylesheet" href="/static/assets/css/ace.min.css" />
+		<link rel="stylesheet" href="/static/assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="/static/assets/css/ace-skins.min.css" />
+
+
+		<script src="/static/assets/js/ace-extra.min.js"></script>
+		
+	</head>
+
+	<body style="background-color:white">
+		<div class="tabbable">
+				<ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+					<li class="active">
+						<a data-toggle="tab" href="#home4">
+							<i class="icon-table bigger-110"></i>
+							列表
+						</a>
+					</li>
+
+					<li class="">
+						<a data-toggle="tab" href="#profile4">
+							<i class="icon-plus bigger-110"></i>
+							新增
+						</a>
+					</li>
+
+					<li class="hidden">
+						<a data-toggle="tab" href="#dropdown14">
+							<i class="icon-pencil bigger-110"></i>
+							修改
+						</a>
+					</li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="home4" class="tab-pane active">
+						
+							<div class="row">
+									<div class="col-xs-12">
+<!-- 										<h3 class="header smaller lighter blue">jQuery dataTables</h3> -->
+<!-- 										<div class="table-header"> -->
+<!-- 											Results for "Latest Registered Domains" -->
+<!-- 										</div> -->
+
+										<div class="table-responsive">
+											<table id="table2"  >
+												<thead>
+													<tr>
+														<th>权限ID</th>
+														<th>权限描述</th>
+														<th>操作</th>
+													</tr>
+												</thead>
+
+<!-- 												<tbody> -->
+<!-- 													<tr> -->
+<!-- 														<td> -->
+<!-- 															<a href="#">app.com</a> -->
+<!-- 														</td> -->
+<!-- 														<td>$45</td> -->
+<!-- 														<td> -->
+<!-- 														</td> -->
+<!-- 													</tr> -->
+<!-- 												</tbody> -->
+											</table>
+										</div>
+									</div>
+								</div><!-- /.row -->
+
+
+					</div>
+
+					<div id="profile4" class="tab-pane">
+						<form class="form-horizontal" role="form">
+						
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-1"> Text Field </label>
+
+										<div class="col-sm-9">
+											<input type="text" id="form-field-1" placeholder="Username" class="col-xs-10 col-sm-5">
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-2"> Password Field </label>
+
+										<div class="col-sm-9">
+											<input type="password" id="form-field-2" placeholder="Password" class="col-xs-10 col-sm-5">
+											<span class="help-inline col-xs-12 col-sm-7">
+												<span class="middle">Inline help text</span>
+											</span>
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-input-readonly"> Readonly field </label>
+
+										<div class="col-sm-9">
+											<input readonly="" type="text" class="col-xs-10 col-sm-5" id="form-input-readonly" value="This text field is readonly!">
+											<span class="help-inline col-xs-12 col-sm-7">
+												<label class="middle">
+													<input class="ace" type="checkbox" id="id-disable-check">
+													<span class="lbl"> Disable it!</span>
+												</label>
+											</span>
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-4">Relative Sizing</label>
+
+										<div class="col-sm-9">
+											<input class="input-sm" type="text" id="form-field-4" placeholder=".input-sm">
+											<div class="space-2"></div>
+
+											<div class="help-block ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="input-size-slider" aria-disabled="false" style="width: 200px;"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a></div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-5">Grid Sizing</label>
+
+										<div class="col-sm-9">
+											<div class="clearfix">
+												<input class="col-xs-1" type="text" id="form-field-5" placeholder=".col-xs-1">
+											</div>
+
+											<div class="space-2"></div>
+
+											<div class="help-block ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" id="input-span-slider" aria-disabled="false"><div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min" style="width: 0%;"></div><a class="ui-slider-handle ui-state-default ui-corner-all" href="#" style="left: 0%;"></a></div>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right">Input with Icon</label>
+
+										<div class="col-sm-9">
+											<span class="input-icon">
+												<input type="text" id="form-field-icon-1">
+												<i class="icon-leaf blue"></i>
+											</span>
+
+											<span class="input-icon input-icon-right">
+												<input type="text" id="form-field-icon-2">
+												<i class="icon-leaf green"></i>
+											</span>
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-6">Tooltip and help button</label>
+
+										<div class="col-sm-9">
+											<input data-rel="tooltip" type="text" id="form-field-6" placeholder="Tooltip on hover" title="" data-placement="bottom" data-original-title="Hello Tooltip!">
+											<span class="help-button" data-rel="popover" data-trigger="hover" data-placement="left" data-content="More details." title="" data-original-title="Popover on hover">?</span>
+										</div>
+									</div>
+
+									<div class="space-4"></div>
+
+									<div class="form-group">
+										<label class="col-sm-3 control-label no-padding-right" for="form-field-tags">Tag input</label>
+
+										<div class="col-sm-9"><div class="tags"><span class="tag">Tag Input Control<button type="button" class="close">×</button></span><input type="text" name="tags" id="form-field-tags" value="Tag Input Control" placeholder="Enter tags ..." style="display: none;"><input type="text" placeholder="Enter tags ..."></div>
+											
+										</div>
+									</div>
+
+									<div class="clearfix form-actions">
+										<div class="col-md-offset-3 col-md-9">
+											<button class="btn btn-info" type="button">
+												<i class="icon-ok bigger-110"></i>
+												Submit
+											</button>
+
+											&nbsp; &nbsp; &nbsp;
+											<button class="btn" type="reset">
+												<i class="icon-undo bigger-110"></i>
+												Reset
+											</button>
+										</div>
+									</div>
+
+								</form>
+					</div>
+
+					<div id="dropdown14" class="tab-pane">
+						<p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade.</p>
+					</div>
+				</div>
+			</div>
+	
+	
+		<!-- basic scripts -->
+
+
+		<script src='/static/assets/js/jquery-2.0.3.min.js'></script>
+		<script src="/static/assets/js/bootstrap.min.js"></script>
+		<script src="/static/assets/js/typeahead-bs2.min.js"></script>
+
+		<!-- page specific plugin scripts -->
+
+
+		<script src="/static/assets/js/jquery.dataTables.min.js"></script>
+		<script src="/static/assets/js/jquery.dataTables.bootstrap.js"></script>
+		
+		<!-- ace scripts -->
+
+		<script src="/static/assets/js/ace-elements.min.js"></script>
+		<script src="/static/assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		<script type="text/javascript">
+		
+		
+            $("#table2").DataTable({
+                //表格基本配置，根据自己需求设置
+                "paging" : true,
+                "lengthChange" : true,
+                "searching" : false,
+                "ordering" : false,
+                "info" : true,
+                "autoWidth" : false,
+                "bStateSave" : true,
+                "bFilter" : true,
+                "oLanguage" :{
+			    		        "processing": "<img src='loading-spinner-grey.gif'/><span>&nbsp;&nbsp;"+"处理中..."+"</span>",
+			    		        "lengthMenu": "每页 _MENU_ 条结果",
+			    		        "zeroRecords": "没有匹配结果",
+			    		        "info": "<span class='seperator'>  </span>" + "总共找到 _TOTAL_ 条结果",
+			    		        "infoFiltered": " (从所有 _MAX_ 条记录中得到)",
+			    		        "infoEmpty": "共 0 项",
+			    		        "emptyTable": "表中数据为空",
+			    		        "paginate": {
+			    		            "previous": "前页",
+			    		            "next": "下页",
+			    		            "first": "第一页  ",
+			    		            "last": "  尾页"
+			    		        }
+    		    },
+                //刷新数据的重点，请求数据源
+                ajax : {
+                    //地址
+                    url : "/permission/selectPermission.do",
+                    type : "get",
+                    dataType : "json",
+                    contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+                    error : function(data,e){
+                        alert("系统繁忙，请稍后重试！");
+                    },
+                    //此处不需要写ajax的success回调
+                },
+                //请求回数据，对表格列进行赋值（此处每一列都需赋值）
+                "columns": [  
+                    { "data": "id","targets": -1},  
+                    { "data": "remark","targets": -2 },  
+                ], 
+                //自定义列数据
+                "columnDefs": [  
+                    {  
+                       "render": function ( data, type, 
+                row ) { 
+                        //data为当前列的数据
+                        //type为当前列数据类型
+                        //row为当前行数据
+                        var rowData=JSON.stringify(row); 
+                        var str = "<a class='herf='javascript:void(0)' onclick='changeModal("+rowData+")'>联系人</a>";
+                            return str;
+                            //此处return可自己定义，博主此处举例为超链接，传参须注意，若传字符串需加上转义字符，否则会报错ReferenceError: XXX is not defined at HTMLAnchorElement.onclick
+                        }, 
+                        //此处target负数表示从右向左的顺序
+                        //-1为右侧第一列 
+                        "targets": -3 
+                   },
+                 ],
+                "createdRow": function ( row, data, index ) {  
+                    //创建行之后的操作
+                },
+            });
+            
+        </script>
+	
+</body>
+</html>

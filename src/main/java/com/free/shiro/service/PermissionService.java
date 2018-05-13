@@ -13,7 +13,7 @@ public interface PermissionService {
 
 	void updatePermission(Permission permission);
 
-	Pager selectPermission(Pager pager);
+	public Pager selectPermission(Pager pager);
 
 	List<Permission> selectAllPermission();
 

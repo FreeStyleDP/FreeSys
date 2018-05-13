@@ -1,5 +1,8 @@
 package com.free.shiro.controller;
 
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -13,11 +16,12 @@ import com.free.shiro.service.PermissionService;
 @RequestMapping("/permission")
 public class PermissionController {
 
+	@Autowired
 	public PermissionService permissionService;
 	
 	@RequestMapping("/toPermission")
 	public String toPermission() {
-		return "rabc_permissionManage";
+		return "rbac_permissionManage";
 	}
 	
 	
@@ -45,6 +49,7 @@ public class PermissionController {
 	@RequestMapping("/selectPermission.do")
 	@ResponseBody
 	public JsonResult selectPermission(Pager pager) {
+		System.out.println("begin"+new Date());
 		pager = permissionService.selectPermission(pager);
 		return JsonResult.ok(pager);
 	}

@@ -1,0 +1,736 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>客户信息</title>
+    <script src="/static/assets/js/util.js"></script>
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.css">
+
+    <link rel="stylesheet" href="/static/assets/css/AdminLTE.css">
+    <link rel="stylesheet" href="/static/assets/css/ionicons.css">
+    <link rel="stylesheet" href="/static/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="/static/assets/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="/static/assets/css/bootstrap-table.css">
+    <link rel="stylesheet" href="/static/assets/css/icheck/all.css">
+    
+    <link rel="stylesheet" href="/static/assets/css/sweet-alert.css">
+    
+</head>
+<body>
+<section class="content-header">
+    <h1>
+        我的工作台
+        <small>管理公告</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>主页</a></li>
+        <li><a href="#">我的工作台</a></li>
+        <li class="active">管理公告</li>
+    </ol>
+</section>
+<section class="content" style="margin-left: 15px;margin-right: 15px;">
+    <div class="modal fade" id="myModalDIY" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+               
+                <div class="modal-body">
+                    <div id="delePower" style="display: none;">
+                        确定删除角色?
+                    </div>
+                    <div class="form-horizontal" id="showcondition">
+                        <table id="table_diy" data-toggle="table">
+                            <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>排序号</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody  >
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-horizontal" id="editcondition" style="display: none;">
+                        <div class="form-group">
+                            <label for="conditionname" class="col-sm-2 control-label">名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="conditionname" placeholder="标签的名称">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="conditionsort" class="col-sm-2 control-label">排序号</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="conditionsort" placeholder="数字越小越靠前">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">内容过滤</label>
+                            <div class="col-sm-10" style="margin-top: 7px;">
+                                <!--<input type="text" class="form-control" id="conditionfilter" placeholder="数字越小越靠前">-->
+                                <label>
+                                    <input type="radio" name="conditionfilter" class="flat-red" checked value="0">
+                                    全部客户
+                                </label>
+                                <label>
+                                    <input type="radio" name="conditionfilter" class="flat-red" value="1">
+                                    自定义条件过滤客户
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group" id="condition" style="display: none;">
+                            <label class="col-sm-2 control-label">指定条件</label>
+                            <div class="col-sm-10">
+                                <div>
+                                    <button id="addItem_btn" type="button" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-plus-sign"></span>添加项
+                                    </button>
+                                </div>
+                                <div id="conditionbody">
+                                    <div class="row" style="margin-top: 10px;margin-left: 0px;">
+                                        <div class="col-sm-2">
+                                            <div class="form-group">
+                                                <select class="form-control select2">
+                                                    <option selected="selected">并且</option>
+                                                    <option>或者</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2" style="margin-left: 10px;">
+                                            <!-- /.form-group -->
+                                            <div class="form-group">
+                                                <select class="form-control select2">
+                                                    <option selected="selected">姓名</option>
+                                                    <option>性别</option>
+                                                    <option>手机号</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2" style="margin-left: 10px;">
+                                            <!-- /.form-group -->
+                                            <div class="form-group">
+                                                <select class="form-control select2">
+                                                    <option selected="selected">==</option>
+                                                    <option>>=</option>
+                                                    <option><=</option>
+                                                    <option>!=</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2" style="margin-left: 10px;">
+                                            <!-- /.form-group -->
+                                            <div class="form-group">
+                                                <select class="form-control select2">
+                                                    <option selected="selected">男</option>
+                                                    <option>女</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <button class="btn btn-warning">删除</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="clsCondition_btn">关闭</button>
+                    <button type="button" class="btn btn-primary" id="addCondition_btn">新建</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalSearch" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        x
+                    </button>
+                    <h4 class="modal-title" id="myModalSearchLable">
+                        搜索
+                    </h4>
+                </div>
+<!--                 搜索信息 -->
+                <div class="modal-body">
+                    <!--<div id="delePower" style="display: none;">-->
+                        <!--确定删除角色?-->
+                    <!--</div>-->
+                    <div class="box box-info">
+                        <div class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="row" style="margin-left: 0px;">
+<!--                                         <label class="control-label col-sm-2" >编号</label> -->
+<!--                                         <div class="col-sm-4"> -->
+<!--                                             <input type="text" class="form-control" id="idSearch"> -->
+<!--                                         </div> -->
+                                        <label class="control-label col-sm-2" >标题</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="titleSearch">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="row" style="margin-left: 0px;">
+                                        <label class="control-label col-sm-2" >发布人</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="managerIdSearch">
+                                        </div>
+<!--                                         <label class="control-label col-sm-2">性别</label> -->
+<!--                                         <div class="col-sm-4"> -->
+											<label class="control-label col-sm-2" >日期</label>
+                                       		<div class="col-sm-4">
+                                            <input type="date" class="form-control" id="showTimeSearch">
+                                        	</div>
+<!--                                             <input type="text" class="form-control"> -->
+                                        </div>
+                                   </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                   
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="clsSearch_btn">关闭</button>
+                    <button type="button" class="btn btn-primary" id="doSearch_btn">搜索</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        x
+                    </button>
+                    <h4 class="modal-title" id="myModalAddLable">
+                        新建
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <!--<div id="delePower" style="display: none;">-->
+                        <!--确定删除角色?-->
+                    <!--</div>-->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">通知消息</h3>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="row" style="margin-left: 0px;">
+                                        <label class="control-label col-sm-2" >标题</label>
+                                        <div class="col-sm-4">
+                                            <input type="text" class="form-control" id="title">
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="row" style="margin-left: 0px;">
+                                        <label class="control-label col-sm-2">文章</label>
+                                      
+<!--                                             <input type="area" class="form-control"> -->
+<!-- 												<article></article> -->
+												<textarea rows="10" style="width:70%" id="content" onmousedown="content(event,this)">
+													</textarea>
+                                        
+                                       
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="clsAdd_btn">关闭</button>
+                    <button type="button" class="btn btn-primary" id="doAdd_btn">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<!--     消息展示 -->
+    <div class="modal fade" id="myModalShow" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        x
+                    </button>
+                    <h4 class="modal-title" id="myModalAddLable">
+                       查看
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <!--<div id="delePower" style="display: none;">-->
+                        <!--确定删除角色?-->
+                    <!--</div>-->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title" id="titleShow" ></h3>
+                        </div>
+                        <div class="form-horizontal">
+                            <div class="box-body">
+                                <div class="form-group">
+                                    <div class="row" style="margin-left: 0px;">
+<!--                                         <label class="control-label col-sm-2" >标题</label> -->
+                                        <div class="col-sm-4">
+<!--                                             <input type="text" class="form-control" id="titleShow"> -->
+					
+                                        </div>
+                                       
+                                    </div>
+                                    
+                                </div>
+                                <div class="form-group">
+                                    <div class="row" style="margin-left: 0px;">
+<!--                                         <label class="control-label col-sm-2">文章</label> -->
+                                      
+<!--                                             <input type="area" class="form-control"> -->
+												<article>
+                                        			<p style="font-size:larger;line-height:200%;text-indent:2em;margin:30px;" id="contentShow"></p>
+ 													<p style="font-size:larger;line-height:200%;text-indent:2em;font-style:oblique;text-align:right;margin:30px;" id="showTimeShow"></p>
+												</article>
+<!-- 												<textarea rows="10" style="width:70%" id="content" onmousedown="content(event,this)"> -->
+<!-- 													</textarea> -->
+
+                                       
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="clsShow_btn">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+<!-- 菜单栏 -->
+    <div class="row" style="background-color: #00c0ef;">
+        <div class="btn-group">
+            <button type="button" class="btn btn-info" id="allInform">全部</button>
+            <button type="button" class="btn btn-info" id="monthInform">本月公告</button>
+            <button type="button" class="btn btn-info" id="todayInform">今日公告</button>
+            
+        </div>
+    </div>
+<!--     操作栏 -->
+    <div class="row" style="margin-top: 15px;">
+        <div id="toolbar" class="btn-group">
+            <button id="search_btn" type="button" class="btn bg-olive">
+                <!--<i class="glyphicon glyphicon-search">搜索</i>-->
+                <span class="glyphicon glyphicon-search"></span>搜索
+                <!--<span class="fa fa-fw fa-gg-circle"></span>搜索-->
+            </button>
+            <button id="add_btn" type="button" class="btn bg-orange">
+                <!--<i class="glyphicon glyphicon-plus">新增</i>-->
+                <span class="glyphicon glyphicon-plus-sign"></span>新增
+            </button>
+<!--             <button type="button" class="btn bg-purple"> -->
+<!--                 <span class="glyphicon glyphicon-pencil"></span>修改 -->
+<!--             </button> -->
+            <button type="button" class="btn bg-red" id="deleteInforms">
+                <span class="glyphicon glyphicon-trash" ></span>删除
+            </button>
+           
+        </div>
+<table id="table" data-toolbar="#toolbar" data-content-type="application/x-www-form-urlencoded">
+            <thead>
+            <tr>
+                <th>全选</th>
+                <th>序号</th>
+                <th>标题</th>
+                <th>公告时间</th>
+                <th>操作人</th>
+            </tr>
+            </thead>
+            <tbody id="tbody">
+            </tbody>
+        </table>
+    </div>
+</section>
+<script src="/static/assets/js/jquery-2.2.3.min.js"></script>
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<script src="/static/assets/js/bootstrap-table.js"></script>
+<script src="/static/assets/css/icheck/icheck.min.js"></script>
+
+<script src="/static/assets/js/sweet-alert.min.js"></script>
+<script>
+
+
+// 日期类型
+// 	1：按日查询
+// 	2：按月查询
+// 	3：按年查询
+var type=0;
+
+
+
+    var title=$("#titleSearch").val();
+    var managerId=$("#managerIdSearch").val();
+    var showTime=$("#showTimeSearch").val();
+function queryParams(params) { 
+    var temp = { 
+      pageSize: params.limit,  
+      pageStart: params.offset,  
+      title:title,
+      managerId:managerId,
+      showTime:showTime,
+      type:type,
+    };  
+    return temp;  
+  }  
+  	var i=0;
+    $("#table").bootstrapTable({
+        url:"/permissin/toPermission.do",
+        method:"post",
+        striped: true, //是否显示行间隔色
+        cache: true, //是否使用缓存，默认为true
+        pagination: true, //是否显示分页（*）
+        queryParams: queryParams,//传递参数（*）
+        sidePagination: "server",
+        pageNumber:1, //初始化加载第一页，默认第一页
+        pageSize:10,
+        pageList: [5, 10, 20], //可供选择的每页的行数（*）
+        showColumns: true, //是否显示所有的列
+        showRefresh: true,
+        minimumCountColumns: 2, //最少允许的列数
+        clickToSelect: true, //是否启用点击选中行
+//         height: 500, //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+        uniqueId: "id", //每一行的唯一标识，一般为主键列
+        showToggle:true, //是否显示详细视图和列表视图的切换按钮
+        cardView: false, //是否显示详细视图
+        detailView: false, //是否显示父子表
+        columns: [{
+            checkbox: true
+        }, {
+            field: 'id',
+			title: '序号',
+            align: 'center',
+        }, {
+            field: 'remark',
+            align: 'center',
+            valign: 'middle'
+        }, {
+//         	field: 'showTime',
+            align: 'center',
+            valign: 'middle',
+            formatter: function (value, row) {
+            		var today=new Date(row.showTime);
+            		today=today.toLocaleDateString()+" "+today.toLocaleTimeString();
+            		return today;}
+           
+        }, {
+            field: 'managerId',
+            align: 'center',
+            valign: 'middle'
+        },
+         
+        {
+//             field: 'id',
+            title: '操作',
+            align: 'center',
+            valign: 'middle',
+            formatter: operateFormatter
+            } 
+        ]
+
+    });
+    
+    function operateFormatter(value, row, index) { 
+    	var str="";
+//     	console.log(deleteFlag);
+    	if(deleteFlag){
+    		str='<button type="button"  class="btn btn-default  btn-sm bg-orange"  style="margin-right:15px;" onclick="deleteInform('+row.id+');" >删除</button>';
+    	}
+        return [
+            '<button type="button"  class="btn btn-default  btn-sm bg-orange" style="margin-right:15px;" onclick="showInform('+row.id+');">查看</button>',
+            str
+        ].join('');
+    }
+ 
+//     单击增加
+    $("#doAdd_btn").click(function(){
+//     	隐藏插入框
+    	 $("#myModalAdd").modal("hide");
+    	var title=$("#title").val();
+    	var content=$("#content").val();
+    	$.ajax({  
+            type : "post",  
+            url : path+"inform/insertInform.do",  
+            data : {
+            	title:title,
+            	content:content
+            	}, 
+            success : function(result){  
+          	  if(result.data == 0){
+          	  	swal(
+          	  	{title:"操作成功",
+          	  	 text:"",
+          		 type:"success"});
+          	  }else if(result.data == 2){
+          		swal({title:"操作失败",  
+           		   text:result.message,
+           		   type:"error"}
+           			  ); 
+          	  }
+          	  $("#table").bootstrapTable('refresh');
+            },
+            error:function(){
+	        	swal({title:"操作失败",  
+		       		   text:"发送请求失败！",
+		       		   type:"error"}); 
+	        }
+            });  
+    });
+    
+//     单击搜索
+	$("#doSearch_btn").click(function(){
+// 		隐藏搜索框
+			id=$("#idSearch").val();
+   			title=$("#titleSearch").val();
+    		managerId=$("#managerIdSearch").val();
+   			showTime=$("#showTimeSearch").val();
+		   $("#myModalSearch").modal("hide");
+       	 	type=1;
+        	$("#table").bootstrapTable('refresh');
+	});
+	
+// 	查询全部
+	$("#allInform").click(function(){
+		id="";
+		title="";
+		managerId="";
+		showTime="";
+// 		$("#idSearch").val("");
+// 	    $("#titleSearch").val("");
+// 	    $("#managerIdSearch").val("");
+// 	    $("#showTimeSearch").val("");	
+        $("#table").bootstrapTable('refresh');
+	});
+	
+// 	查寻本月
+	$("#monthInform").click(function(){
+		$("#idSearch").val("");
+	    $("#titleSearch").val("");
+	    $("#managerIdSearch").val("");
+	    type=2;
+	    var today=formatDate(new Date());
+		
+// 	    $("#showTimeSearch").val(today);	
+// 	    console.log("本月："+today); 
+		showTime=today;
+        $("#table").bootstrapTable('refresh');
+	});
+	
+// 	查询本日
+	$("#todayInform").click(function(){
+		$("#idSearch").val("");
+	    $("#titleSearch").val("");
+	    $("#managerIdSearch").val("");
+	    type=1;
+	    var today=formatDate(new Date());
+	    console.log(today);
+	    showTime=today;	
+        $("#table").bootstrapTable('refresh');
+	});
+	
+	
+// 	单个删除
+	function deleteInform(id){
+		swal({
+			title: "确定删除?",
+			  text: "亲，你将删除此通知！",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: "狠心抛弃",
+			  cancelButtonText:"算了，考虑一下",
+			  closeOnConfirm: false
+		},function(){
+		$.ajax({  
+	        type : "post",  
+	        url : path+"deleteInform.do",  
+	        data : {
+	        	id:id
+	        	}, 
+	        success : function(data){  
+	      	  data = $.parseJSON(data);  
+	      	  if(data.flag==1){
+	      	  swal({title:"删除成功",  
+	      		   text:"1秒后自动关闭！",
+// 	      		 showConfirmButton: false,  
+	             timer: 1000,
+	      		 type:"success"}
+	      			  );
+	      	  }else{
+	      		swal({title:"删除失败",  
+	       		   text:"1秒后自动关闭！",
+		           timer: 1000,
+	       		   type:"error"}); 
+	      	  }
+	      	  $("#table").bootstrapTable('refresh');
+	        },
+	        error:function(){
+	        	swal({title:"删除失败",  
+		       		   text:"操作违法！",
+// 			           timer: 1000,
+		       		   type:"error"}); 
+	        }
+	        });
+		});
+	}
+	
+// 	获取选中行
+	function getIdSelections() {
+        return $.map($("#table").bootstrapTable('getSelections'), function(row) {return row.id});
+    }
+    	
+// 	多个删除
+	$('#deleteInforms').click(function(){
+		var rows=getIdSelections();
+		deleteInforms(rows);
+	});
+	function deleteInforms(rows){
+		var count=0;
+		swal({
+			title: "确定删除?",
+			  text: "亲，你将删除多条通知！",
+			  type: "warning",
+			  showCancelButton: true,
+			  confirmButtonColor: "#DD6B55",
+			  confirmButtonText: "狠心抛弃",
+			  cancelButtonText:"算了，考虑一下",
+			  closeOnConfirm: false
+		},function(count){
+			var flag = true;
+// 			获取表格选中行的数据
+			for(i=0;i<rows.length;i++){
+             	$.ajax({  
+        	        type : "post",  
+        	        url : path+"deleteInform.do",  
+        	        data : {
+        	        	id:rows[i]
+        	        	}, 
+        	        success : 
+        	        	function(data,count){  
+        	        	count=count+data.flag;
+        	        	console.log(count);
+        	        	$("#table").bootstrapTable('refresh');
+        	        	return count;
+        	        	},
+                    error:
+                    	function(flag){
+                    	flag = false;
+        	        	swal({title:"操作失败",  
+        		       		   text:"操作违法！",
+//         			           timer: 1000,
+        		       		   type:"error"}); 
+        	        	return flag;
+        	        }
+        	        });
+			}
+			console.log(flag);
+			if(flag){
+				swal({title:"删除成功",  
+		      		   text:"1秒后自动关闭！",
+	//	      		 showConfirmButton: false,  
+		             timer: 1000,
+		      		 type:"success"}
+		      			  );
+			}
+			});
+		}
+	
+	
+//     查看
+		function showInform(id){
+			$("#myModalShow").modal("show");
+			$.ajax({  
+			     type : "post",  
+			     url : path+"showInform.do",  
+			     data : {
+			    	 id:id
+			     }, 
+			     success : function(data){  
+			   	data = $.parseJSON(data);  
+			   	$("#titleShow").html(data.title);
+			   	$("#contentShow").html(data.content);
+			   	var day=new Date(data.showTime);
+			   	$("#showTimeShow").html(day.toLocaleDateString());
+			     }  
+			     });  
+		}
+    
+    
+//     单击光标在首位
+    function content(e,a)
+{
+	 if ( e && e.preventDefault )
+            e.preventDefault();
+	else 
+	window.event.returnValue=false;
+		a.focus();
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    $(function () {
+        $("#search_btn").click(function () {
+            $("#myModalSearch").modal("show");
+        });
+        $("#clsSearch_btn").click(function () {
+            $("#myModalSearch").modal("hide");
+        });
+        $("#add_btn").click(function () {
+            $("#myModalAdd").modal("show");
+        });
+        $("#clsAdd_btn").click(function () {
+            $("#myModalAdd").modal("hide");
+        });
+        $("#clsShow_btn").click(function () {
+            $("#myModalShow").modal("hide");
+        });
+    });
+</script>
+</body>
+</html>

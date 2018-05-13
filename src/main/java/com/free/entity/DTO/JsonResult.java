@@ -191,4 +191,10 @@ public class JsonResult {
 		this.ok = ok;
 	}
 
+	@Override
+	public String toString() {
+		return "JsonResult [status=" + status + ", msg=" + msg + ", data=" + data + ", ok=" + ok + "]";
+	}
+	
+	
 }

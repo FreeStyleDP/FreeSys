@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
 import org.apache.shiro.mgt.SecurityManager;
 
 /**
- * shiro的配置类
+ * shiro的配置
  * @author dengp_m  
  * @date 2018年5月1日 下午6:22:39 
  */
-@Configuration
+//@Configuration
 public class ShiroConfiguration {
     @Bean(name="shiroFilter")
     public ShiroFilterFactoryBean shiroFilter(SecurityManager manager) {
