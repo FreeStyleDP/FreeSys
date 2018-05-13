@@ -46,11 +46,12 @@ public class PermissionController {
 		return JsonResult.ok();
 	}
 	
+	
 	@RequestMapping("/selectPermission.do")
 	@ResponseBody
 	public JsonResult selectPermission(Pager pager) {
 		System.out.println("begin"+new Date());
 		pager = permissionService.selectPermission(pager);
-		return JsonResult.ok(pager);
+		return JsonResult.ok(pager.getContent());
 	}
 }
