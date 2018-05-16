@@ -440,7 +440,7 @@
 					<div class="page-content">
 						<div class="row">
 								<!-- PAGE CONTENT BEGINS -->
-								<iframe src="/role/toRole" frameborder="0"  id="contentIframe" width="100%" onload="iFrameHeight();"></iframe>
+								<iframe src="/role/toRole" frameborder="0"  id="contentIframe" width="100%"  onload="iFrameHeight();"></iframe>
 <!-- 								<iframe src="/dashboard/toDashboard" frameborder="0"  id="contentIframe" width="100%" onload="iFrameHeight();"></iframe> -->
 								<!-- PAGE CONTENT ENDS -->
 						</div><!-- /.row -->
@@ -552,6 +552,8 @@
 		        function loadPage(param) {
 		            window.frames["contentIframe"].src =param;
 		        }
+					
+				
 		        
 		        $(".nav-list").on("click", "a", function () {
  		            var page = $(this).attr("data-target");

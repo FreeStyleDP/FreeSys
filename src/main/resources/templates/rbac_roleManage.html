@@ -118,6 +118,8 @@
 		<script type="text/javascript">
 			
 			jQuery(function($) {
+				
+				
 				var grid_selector = "#grid-table";
 				var pager_selector = "#grid-pager";
 			
@@ -135,7 +137,7 @@
 								keys:true,
 								
 								delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
-								//editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
+// 								editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
 							}
 						},
 						{name:'id',index:'id', width:60, editable: true,key:true},
@@ -168,7 +170,6 @@
 						}, 0);
 					},
 			
-					editurl: $path_base+"/dummy.html",//nothing is saved
 					caption: "权限列表",
 			
 			
@@ -184,7 +185,16 @@
 					 prmNames:{
 						 page: "currentPage",
 						 rows: "pageSize"
-					 }
+					 },
+					 editurl: "/permission",
+	               	 autowidth: true,
+//						服务器响应事件
+					 loadComplete:function(xhr){
+						console.log(xhr);
+					},
+					beforeRequest:function(){
+						console.log("begin");
+					}
 				});
 			
 				//enable search/filter toolbar
@@ -260,6 +270,7 @@
 						onClick : function(e) {
 							alert(1);
 						}
+
 					},
 					{
 						//search form
@@ -288,7 +299,6 @@
 						}
 					}
 				)
-			
 			
 				
 				function style_edit_form(form) {
