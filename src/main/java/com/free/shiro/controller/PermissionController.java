@@ -1,10 +1,9 @@
 package com.free.shiro.controller;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.free.entity.DTO.JsonResult;
@@ -25,14 +24,14 @@ public class PermissionController {
 	}
 	
 	
-	@RequestMapping("/insertPermission.do")
+	@RequestMapping(value = "/insertPermission.do", method = RequestMethod.POST)
 	@ResponseBody
 	public JsonResult insertPermission(Permission permission) {
 		permissionService.insertPermission(permission);
 		return JsonResult.ok();
 	}
 	
-	@RequestMapping("/deletePermission.do")
+	@RequestMapping(value = "/deletePermission.do", method=RequestMethod.POST)
 	@ResponseBody
 	public JsonResult deletePermission(Permission permission) {
 		permissionService.deletePermission(permission.getId());

@@ -106,6 +106,7 @@
 
 		<script src="../static/assets/js/date-time/bootstrap-datepicker.min.js"></script>
 		<script src="../static/assets/js/jqGrid/jquery.jqGrid.min.js"></script>
+		<script src="../static/assets/js/bootbox.min.js"></script>
 		<script src="../static/assets/js/jqGrid/i18n/grid.locale-en.js"></script>
 
 		<!-- ace scripts -->
@@ -137,7 +138,7 @@
 								keys:true,
 								
 								delOptions:{recreateForm: true, beforeShowForm:beforeDeleteCallback},
-// 								editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
+								editformbutton:true, editOptions:{recreateForm: true, beforeShowForm:beforeEditCallback}
 							}
 						},
 						{name:'id',index:'id', width:60, editable: true,key:true},
@@ -163,7 +164,6 @@
 						var table = this;
 						setTimeout(function(){
 							styleCheckbox(table);
-							
 							updateActionIcons(table);
 							updatePagerIcons(table);
 							enableTooltips(table);
@@ -171,8 +171,6 @@
 					},
 			
 					caption: "权限列表",
-			
-			
 					autowidth: true,
 					 jsonReader : { 
 						 id : "data.content.id",
@@ -186,15 +184,14 @@
 						 page: "currentPage",
 						 rows: "pageSize"
 					 },
-					 editurl: "/permission",
+// 					 editurl: "/permission",
 	               	 autowidth: true,
 //						服务器响应事件
 					 loadComplete:function(xhr){
-						console.log(xhr);
+						 if(xhr.status != 200){
+							 bootbox.alert(msg);
+						 }
 					},
-					beforeRequest:function(){
-						console.log("begin");
-					}
 				});
 			
 				//enable search/filter toolbar
@@ -239,6 +236,9 @@
 						//closeAfterEdit: true,
 						recreateForm: true,
 						beforeShowForm : function(e) {
+							$(grid_selector).jqGrid('setGridParam',{ 
+						        editurl:'/permission/updatePermission.do', 
+						    });
 							var form = $(e[0]);
 							form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 							style_edit_form(form);
@@ -250,6 +250,9 @@
 						recreateForm: true,
 						viewPagerButtons: false,
 						beforeShowForm : function(e) {
+							$(grid_selector).jqGrid('setGridParam',{ 
+						        editurl:'/permission/insertPermission.do', 
+						    });
 							var form = $(e[0]);
 							form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 							style_edit_form(form);
@@ -259,6 +262,9 @@
 						//delete record form
 						recreateForm: true,
 						beforeShowForm : function(e) {
+							$(grid_selector).jqGrid('setGridParam',{ 
+						        editurl:'/permission/deletePermission.do', 
+						    });
 							var form = $(e[0]);
 							if(form.data('styled')) return false;
 							
@@ -298,7 +304,9 @@
 							form.closest('.ui-jqdialog').find('.ui-jqdialog-title').wrap('<div class="widget-header" />')
 						}
 					}
+					
 				)
+				
 			
 				
 				function style_edit_form(form) {
@@ -341,6 +349,9 @@
 				}
 				
 				function beforeDeleteCallback(e) {
+					$(grid_selector).jqGrid('setGridParam',{ 
+				        editurl:'/permission/deletePermission.do', 
+				    });
 					var form = $(e[0]);
 					if(form.data('styled')) return false;
 					
@@ -351,6 +362,9 @@
 				}
 				
 				function beforeEditCallback(e) {
+					$(grid_selector).jqGrid('setGridParam',{ 
+				        editurl:'/permission/updatePermission.do', 
+				    });
 					var form = $(e[0]);
 					form.closest('.ui-jqdialog').find('.ui-jqdialog-titlebar').wrapInner('<div class="widget-header" />')
 					style_edit_form(form);
